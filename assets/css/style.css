@@ -1,4 +1,175 @@
-/* Small tweaks on top of Bootstrap */
+/* Layout + modern navbar */
+:root {
+    --nav-bg: #0f172a;
+    --nav-bg-soft: #1e293b;
+    --nav-border: rgba(255, 255, 255, 0.08);
+    --nav-text: rgba(248, 250, 252, 0.88);
+    --nav-text-muted: rgba(203, 213, 225, 0.85);
+    --brand: #38bdf8;
+    --brand-dark: #7dd3fc;
+    --surface: #f8fafc;
+}
+
+body.site-body {
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+    background: var(--surface);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.site-main {
+    flex: 1;
+}
+
+.site-header {
+    z-index: 1030;
+    margin-bottom: 2rem;
+}
+
+.navbar-modern {
+    background: linear-gradient(135deg, var(--nav-bg) 0%, var(--nav-bg-soft) 100%);
+    border-bottom: 1px solid var(--nav-border);
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    box-shadow: 0 4px 24px rgba(15, 23, 42, 0.12);
+}
+
+.site-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #f8fafc !important;
+}
+
+.site-brand .brand-mark {
+    font-size: 1.75rem;
+    color: var(--brand);
+}
+
+.navbar-toggler-modern {
+    border: 1px solid var(--nav-border);
+    padding: 0.35rem 0.5rem;
+    border-radius: 0.5rem;
+    color: var(--nav-text);
+}
+
+.navbar-toggler-modern .material-symbols-outlined {
+    color: var(--nav-text);
+}
+
+.navbar-toggler-modern:focus {
+    box-shadow: 0 0 0 0.2rem rgba(56, 189, 248, 0.35);
+}
+
+.nav-link-modern {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0.35rem;
+    font-weight: 500;
+    color: var(--nav-text-muted) !important;
+    border-radius: 999px;
+    padding: 0.45rem 0.85rem !important;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.nav-link-modern .nav-icon {
+    font-size: 1.25rem;
+}
+
+.nav-link-modern:hover,
+.nav-link-modern:focus {
+    color: #fff !important;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link-modern.active {
+    color: #fff !important;
+    background: rgba(56, 189, 248, 0.2);
+}
+
+.nav-link-cart {
+    position: relative;
+}
+
+.cart-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.25rem;
+    height: 1.25rem;
+    padding: 0 0.35rem;
+    margin-left: 0.15rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--nav-bg);
+    background: var(--brand);
+    border-radius: 999px;
+}
+
+.site-footer {
+    margin-top: auto;
+    border-top: 1px solid var(--nav-border);
+    background: #fff;
+    padding: 1.25rem 0;
+}
+
+.footer-icon {
+    font-size: 1.25rem;
+    vertical-align: middle;
+}
+
+/* Material Symbols defaults */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+    line-height: 1;
+    user-select: none;
+}
+
+.icon-sm {
+    font-size: 1.125rem !important;
+}
+
+.icon-inline-text {
+    margin-right: 0.25rem;
+}
+
+.page-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.page-title .material-symbols-outlined {
+    color: var(--brand);
+}
+
+.btn .material-symbols-outlined {
+    font-size: 1.125rem;
+}
+
+.btn-icon-left {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.alert-with-icon {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.alert-with-icon .material-symbols-outlined {
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+/* Product cards */
 .product-thumb {
     height: 180px;
     object-fit: contain;
@@ -21,14 +192,17 @@
 
 .product-card {
     transition: transform 0.15s ease, box-shadow 0.15s ease;
+    border: 1px solid var(--nav-border);
 }
 
 .product-card:hover {
     transform: translateY(-2px);
 }
 
-.cart-badge {
-    vertical-align: middle;
+.price-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
 }
 
 .quick-add-form .qty-stepper {
@@ -45,4 +219,55 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+}
+
+.quick-add-submit .material-symbols-outlined {
+    font-size: 1.35rem;
+}
+
+.qty-step .material-symbols-outlined {
+    font-size: 1.125rem;
+}
+
+.success-icon-circle {
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(25, 135, 84, 0.12);
+    color: #198754;
+}
+
+.success-icon-circle .material-symbols-outlined {
+    font-size: 2.5rem;
+}
+
+.card-section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.card-section-title .material-symbols-outlined {
+    color: var(--brand);
+    font-size: 1.35rem;
+}
+
+.breadcrumb .material-symbols-outlined {
+    font-size: 1rem;
+    vertical-align: text-bottom;
+}
+
+.form-label-with-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.form-label-with-icon .material-symbols-outlined {
+    font-size: 1.1rem;
+    color: #64748b;
 }

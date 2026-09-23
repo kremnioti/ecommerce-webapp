@@ -23,18 +23,24 @@ require __DIR__ . '/includes/header.php';
 ?>
 
 <?php if (!$order): ?>
-    <div class="alert alert-warning">Order not found.</div>
-    <a href="index.php" class="btn btn-primary">Back to shop</a>
+    <div class="alert alert-warning alert-with-icon"><?= icon('help', 'icon-sm') ?><span>Order not found.</span></div>
+    <a href="index.php" class="btn btn-primary btn-icon-left"><?= icon('storefront', 'icon-sm') ?>Back to shop</a>
 <?php else: ?>
     <div class="text-center py-4">
-        <p class="text-success fs-1 mb-2">✓</p>
+        <div class="success-icon-circle"><?= icon('check_circle') ?></div>
         <h1 class="h2">Thank you for your order!</h1>
-        <p class="text-muted">Order #<?= (int) $order['id'] ?> — <?= format_money((float) $order['total']) ?></p>
+        <p class="text-muted d-flex align-items-center justify-content-center gap-1 flex-wrap">
+            <?= icon('tag', 'icon-sm') ?>
+            Order #<?= (int) $order['id'] ?> — <?= format_money((float) $order['total']) ?>
+        </p>
     </div>
     <div class="card shadow-sm mx-auto" style="max-width: 520px;">
         <div class="card-body">
-            <p><strong>Ship to:</strong> <?= e($order['customer_name']) ?></p>
-            <p class="mb-0 small text-muted"><?= nl2br(e($order['shipping_address'])) ?></p>
+            <p class="d-flex align-items-center gap-1"><strong><?= icon('person', 'icon-sm') ?>Ship to:</strong> <?= e($order['customer_name']) ?></p>
+            <p class="mb-0 small text-muted d-flex gap-2">
+                <?= icon('location_on', 'icon-sm') ?>
+                <span><?= nl2br(e($order['shipping_address'])) ?></span>
+            </p>
             <hr>
             <ul class="list-unstyled mb-0">
                 <?php foreach ($items as $item): ?>
@@ -47,7 +53,7 @@ require __DIR__ . '/includes/header.php';
         </div>
     </div>
     <div class="text-center mt-4">
-        <a href="index.php" class="btn btn-primary">Continue shopping</a>
+        <a href="index.php" class="btn btn-primary btn-icon-left"><?= icon('shoppingmode', 'icon-sm') ?>Continue shopping</a>
     </div>
 <?php endif; ?>
 

@@ -97,3 +97,13 @@ function e(string $value): string
 {
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 }
+
+/** Material Symbols Outlined icon (name from Google Material Icons). */
+function icon(string $name, string $extraClass = ''): string
+{
+    $class = 'material-symbols-outlined';
+    if ($extraClass !== '') {
+        $class .= ' ' . $extraClass;
+    }
+    return '<span class="' . e($class) . '" aria-hidden="true">' . e($name) . '</span>';
+}

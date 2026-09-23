@@ -47,20 +47,23 @@ if (!empty($cart)) {
 require __DIR__ . '/includes/header.php';
 ?>
 
-<h1 class="h2 mb-4">Your cart</h1>
+<h1 class="h2 mb-4 page-title"><?= icon('shopping_cart') ?><span>Your cart</span></h1>
 
 <?php if (empty($lines)): ?>
-    <div class="alert alert-info">Your cart is empty. <a href="index.php">Continue shopping</a></div>
+    <div class="alert alert-info alert-with-icon">
+        <?= icon('remove_shopping_cart', 'icon-sm') ?>
+        <span>Your cart is empty. <a href="index.php">Continue shopping</a></span>
+    </div>
 <?php else: ?>
     <form method="post" id="cart-update-form">
         <div class="table-responsive">
             <table class="table align-middle">
                 <thead>
                 <tr>
-                    <th>Product</th>
-                    <th class="text-end">Price</th>
-                    <th style="width: 120px;">Qty</th>
-                    <th class="text-end">Subtotal</th>
+                    <th><?= icon('package_2', 'icon-sm icon-inline-text') ?>Product</th>
+                    <th class="text-end"><?= icon('sell', 'icon-sm icon-inline-text') ?>Price</th>
+                    <th style="width: 120px;"><?= icon('pin', 'icon-sm icon-inline-text') ?>Qty</th>
+                    <th class="text-end"><?= icon('calculate', 'icon-sm icon-inline-text') ?>Subtotal</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -84,10 +87,19 @@ require __DIR__ . '/includes/header.php';
                 </tbody>
             </table>
         </div>
-        <p class="text-end fs-5">Total: <strong><?= format_money($subtotal) ?></strong></p>
+        <p class="text-end fs-5 d-flex align-items-center justify-content-end gap-2">
+            <?= icon('payments', 'icon-sm') ?>
+            <span>Total: <strong><?= format_money($subtotal) ?></strong></span>
+        </p>
         <div class="d-flex flex-wrap gap-2 justify-content-end">
-            <button type="submit" name="update_cart" value="1" class="btn btn-outline-secondary">Update cart</button>
-            <a href="checkout.php" class="btn btn-primary">Proceed to checkout</a>
+            <button type="submit" name="update_cart" value="1" class="btn btn-outline-secondary btn-icon-left">
+                <?= icon('sync', 'icon-sm') ?>
+                Update cart
+            </button>
+            <a href="checkout.php" class="btn btn-primary btn-icon-left">
+                <?= icon('shopping_bag', 'icon-sm') ?>
+                Proceed to checkout
+            </a>
         </div>
     </form>
 <?php endif; ?>

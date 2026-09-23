@@ -90,34 +90,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 require __DIR__ . '/includes/header.php';
 ?>
 
-<h1 class="h2 mb-4">Checkout</h1>
+<h1 class="h2 mb-4 page-title"><?= icon('credit_card') ?><span>Checkout</span></h1>
 
 <?php foreach ($errors as $err): ?>
-    <div class="alert alert-danger"><?= e($err) ?></div>
+    <div class="alert alert-danger alert-with-icon"><?= icon('error', 'icon-sm') ?><span><?= e($err) ?></span></div>
 <?php endforeach; ?>
 
 <div class="row g-4">
     <div class="col-lg-7">
         <div class="card shadow-sm">
             <div class="card-body">
-                <h2 class="h5 card-title">Shipping details</h2>
+                <h2 class="h5 card-title card-section-title"><?= icon('local_shipping') ?>Shipping details</h2>
                 <form method="post" novalidate>
                     <div class="mb-3">
-                        <label for="name" class="form-label">Full name</label>
+                        <label for="name" class="form-label form-label-with-icon"><?= icon('person') ?>Full name</label>
                         <input type="text" class="form-control" id="name" name="name" required
                                value="<?= e($form['name']) ?>">
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
+                        <label for="email" class="form-label form-label-with-icon"><?= icon('mail') ?>Email</label>
                         <input type="email" class="form-control" id="email" name="email" required
                                value="<?= e($form['email']) ?>">
                     </div>
                     <div class="mb-3">
-                        <label for="address" class="form-label">Shipping address</label>
+                        <label for="address" class="form-label form-label-with-icon"><?= icon('home_pin') ?>Shipping address</label>
                         <textarea class="form-control" id="address" name="address" rows="3" required><?= e($form['address']) ?></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Place order</button>
-                    <a href="cart.php" class="btn btn-link">Back to cart</a>
+                    <button type="submit" class="btn btn-primary btn-icon-left">
+                        <?= icon('check', 'icon-sm') ?>
+                        Place order
+                    </button>
+                    <a href="cart.php" class="btn btn-link btn-icon-left"><?= icon('arrow_back', 'icon-sm') ?>Back to cart</a>
                 </form>
             </div>
         </div>
@@ -125,7 +128,7 @@ require __DIR__ . '/includes/header.php';
     <div class="col-lg-5">
         <div class="card shadow-sm">
             <div class="card-body">
-                <h2 class="h5 card-title">Order summary</h2>
+                <h2 class="h5 card-title card-section-title"><?= icon('receipt_long') ?>Order summary</h2>
                 <ul class="list-group list-group-flush mb-3">
                     <?php foreach ($lines as $line): ?>
                         <li class="list-group-item d-flex justify-content-between px-0">
@@ -135,7 +138,7 @@ require __DIR__ . '/includes/header.php';
                     <?php endforeach; ?>
                 </ul>
                 <p class="d-flex justify-content-between fs-5 mb-0">
-                    <span>Total</span>
+                    <span class="d-inline-flex align-items-center gap-1"><?= icon('payments', 'icon-sm') ?>Total</span>
                     <strong><?= format_money($subtotal) ?></strong>
                 </p>
             </div>
