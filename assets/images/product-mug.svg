@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect fill="#fff3cd" width="400" height="300"/>
+  <path d="M130 200 V100 Q200 60 270 100 V200 Z" fill="#ffc107"/>
+  <text x="200" y="260" text-anchor="middle" fill="#495057" font-family="sans-serif" font-size="14">Mug</text>
+</svg>

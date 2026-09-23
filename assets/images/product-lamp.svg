@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect fill="#f8f9fa" width="400" height="300"/>
+  <rect x="175" y="60" width="20" height="160" fill="#6c757d"/>
+  <ellipse cx="185" cy="55" rx="35" ry="12" fill="#ffc107"/>
+  <text x="200" y="260" text-anchor="middle" fill="#495057" font-family="sans-serif" font-size="14">Desk lamp</text>
+</svg>

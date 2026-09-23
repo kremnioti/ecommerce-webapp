@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect fill="#d1e7dd" width="400" height="300"/>
+  <rect x="100" y="70" width="80" height="110" fill="#198754"/>
+  <rect x="190" y="70" width="80" height="110" fill="#20c997"/>
+  <rect x="280" y="70" width="80" height="110" fill="#198754"/>
+  <text x="200" y="260" text-anchor="middle" fill="#495057" font-family="sans-serif" font-size="14">Notebooks</text>
+</svg>
